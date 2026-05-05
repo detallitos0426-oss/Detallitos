@@ -1,96 +1,91 @@
 /* ========================= */
-/* GENERAL */
+/* FONDO */
 /* ========================= */
 body {
   margin: 0;
-  font-family: Arial;
-  background: black;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  overflow: hidden;
   color: white;
+}
+
+/* ========================= */
+/* CONTENEDOR */
+/* ========================= */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   text-align: center;
 }
 
 /* ========================= */
-/* NAV */
+/* TEXTO */
 /* ========================= */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0,0,0,0.6);
-  padding: 15px;
+h1 {
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
+p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  animation: fadeIn 3s ease;
 }
 
-nav a {
+/* ========================= */
+/* BOTÓN */
+/* ========================= */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: #ff6f91;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff6f91;
   color: white;
-  text-decoration: none;
 }
 
 /* ========================= */
-/* SECCIONES */
+/* ANIMACIONES */
 /* ========================= */
-section {
-  display: none;
-  padding: 120px 20px;
-  min-height: 100vh;
-}
-
-.active {
-  display: block;
-}
-
-/* ========================= */
-/* GALERÍA */
-/* ========================= */
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.gallery img {
-  width: 200px;
-  border-radius: 10px;
-}
-
-/* ========================= */
-/* GALAXIA */
-/* ========================= */
-#galaxyCanvas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-.center-text {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-}
-
-/* ========================= */
-/* ANILLO */
-/* ========================= */
-.love {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  animation: orbit 20s linear infinite;
-}
-
-@keyframes orbit {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg) translateX(250px) rotate(0deg);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg) translateX(250px) rotate(-360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* CORAZONES */
+/* ========================= */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
   }
 }
