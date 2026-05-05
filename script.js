@@ -1,68 +1,26 @@
 /* ========================= */
-/* CAMBIAR SECCIONES */
+/* MENSAJE */
 /* ========================= */
-function show(id) {
-  document.querySelectorAll("section").forEach(sec => {
-    sec.classList.remove("active");
-  });
-
-  document.getElementById(id).classList.add("active");
+function showMessage() {
+  alert("You are my everything 💖");
 }
 
 /* ========================= */
-/* GALAXIA */
+/* CORAZONES FLOTANDO */
 /* ========================= */
-const canvas = document.getElementById("galaxyCanvas");
-const ctx = canvas.getContext("2d");
+setInterval(() => {
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
 
-// estrellas
-let stars = [];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "100vh";
 
-for (let i = 0; i < 300; i++) {
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 2
-  });
-}
+  document.body.appendChild(heart);
 
-// animación
-function draw() {
-  ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
 
-  ctx.fillStyle = "white";
-
-  stars.forEach(s => {
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-    ctx.fill();
-  });
-
-  requestAnimationFrame(draw);
-}
-
-draw();
-
-/* ========================= */
-/* FRASES EN ANILLO */
-/* ========================= */
-const phrases = [
-  "Te amo","I love you","Je t’aime","Ti amo","Ich liebe dich",
-  "Eu te amo","愛してる","사랑해","Я тебя люблю","Te iubesc",
-  "Kocham cię","Volim te","Anh yêu em","Saya cinta kamu"
-];
-
-phrases.forEach((text, i) => {
-  const el = document.createElement("div");
-  el.className = "love";
-  el.innerText = text;
-
-  el.style.transform =
-    `rotate(${i * (360 / phrases.length)}deg) translateX(250px)`;
-
-  document.body.appendChild(el);
-});
+}, 300);
