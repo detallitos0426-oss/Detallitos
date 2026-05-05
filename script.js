@@ -1,12 +1,19 @@
+// =========================
+// 🌌 CONFIGURAR CANVAS
+// =========================
 const canvas = document.getElementById("galaxy");
 const ctx = canvas.getContext("2d");
 
+// tamaño pantalla
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// =========================
+// ⭐ CREAR ESTRELLAS
+// =========================
 let stars = [];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 300; i++) {
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
@@ -14,10 +21,18 @@ for (let i = 0; i < 200; i++) {
   });
 }
 
+// =========================
+// ✨ DIBUJAR ESTRELLAS
+// =========================
 function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // fondo oscuro semi transparente
+  ctx.fillStyle = "rgba(0,0,0,0.3)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // dibujar estrellas
   ctx.fillStyle = "white";
+
   stars.forEach(star => {
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
@@ -27,31 +42,33 @@ function drawStars() {
   requestAnimationFrame(drawStars);
 }
 
+// iniciar animación
 drawStars();
 
-
-// 💖 FRASES EN DIFERENTES IDIOMAS
+// =========================
+// 💖 FRASES (MUCHOS IDIOMAS)
+// =========================
 const phrases = [
-  "Te amo",
-  "I love you",
-  "Je t’aime",
-  "Ti amo",
-  "Ich liebe dich",
-  "Eu te amo",
-  "愛してる",
-  "사랑해",
-  "Я тебя люблю",
-  "Te iubesc"
+  "Te amo","I love you","Je t’aime","Ti amo","Ich liebe dich",
+  "Eu te amo","愛してる","사랑해","Я тебя люблю","Te iubesc",
+  "Seni seviyorum","Ik hou van jou","Jag älskar dig",
+  "Minä rakastan sinua","Kocham cię","Anh yêu em",
+  "Saya cinta kamu","Mahal kita","Volim te"
 ];
 
-phrases.forEach((text, index) => {
-  const span = document.createElement("div");
-  span.classList.add("love");
-  span.innerText = text;
+// =========================
+// 🪐 CREAR ANILLO
+// =========================
+phrases.forEach((text, i) => {
 
-  span.style.top = "50%";
-  span.style.left = "50%";
-  span.style.animationDelay = index + "s";
+  const el = document.createElement("div");
 
-  document.body.appendChild(span);
+  el.className = "love";
+  el.innerText = text;
+
+  // distribuir en círculo
+  el.style.transform = `rotate(${i * (360 / phrases.length)}deg) translateX(250px)`;
+
+  document.getElementById("galaxy-section").appendChild(el);
+
 });
