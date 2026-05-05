@@ -2,53 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Monthsary ❤️</title>
+
+  <!-- Título de la página -->
+  <title>For My Love ❤️</title>
+
+  <!-- Conexión al CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- 🌌 GALAXIA -->
-<canvas id="galaxy"></canvas>
-<div class="center-text">I LOVE YOU 💖</div>
-
+<!-- ========================= -->
+<!-- 🔝 NAVBAR -->
+<!-- ========================= -->
 <header>
   <nav>
     <h1>❤️ Our Love</h1>
+
+    <!-- Menú de navegación -->
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#home">Reasons</a></li>
       <li><a href="#memories">Memories</a></li>
       <li><a href="#letter">Letter</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#future">Future</a></li>
+      <li><a href="#galaxy-section">Galaxy</a></li>
     </ul>
   </nav>
 </header>
 
+<!-- ========================= -->
+<!-- 💖 RAZONES -->
+<!-- ========================= -->
 <section id="home" class="hero">
-  <h2>Happy 1 Year & 1 Month 💖</h2>
-  <p>You are my favorite person in the world</p>
+
+  <h2>Why I Love You 💖</h2>
+
+  <!-- Lista de razones -->
+  <ul class="reasons">
+    <li>You make me happy every day</li>
+    <li>Your smile is my favorite thing</li>
+    <li>You support me always</li>
+    <li>You are my peace</li>
+    <li>You are my best friend</li>
+  </ul>
+
 </section>
 
+<!-- ========================= -->
+<!-- 📸 MEMORIAS -->
+<!-- ========================= -->
 <section id="memories">
-  <h2>Our Memories</h2>
-  <p>Every moment with you is special...</p>
+
+  <h2>Our Memories 📸</h2>
+
+  <!-- Contenedor de imágenes -->
+  <div class="gallery">
+
+    <!-- Puedes cambiar estas imágenes por las tuyas -->
+    <img src="https://picsum.photos/300?1">
+    <img src="https://picsum.photos/300?2">
+    <img src="https://picsum.photos/300?3">
+    <img src="https://picsum.photos/300?4">
+
+  </div>
+
 </section>
 
+<!-- ========================= -->
+<!-- 💌 CARTA -->
+<!-- ========================= -->
 <section id="letter">
   <h2>A Letter For You 💌</h2>
-  <p>I love you more than words can explain...</p>
+  <p>
+    I love you more than words can explain.
+    You are the best thing that has ever happened to me.
+  </p>
 </section>
 
-<section id="gallery">
-  <h2>Gallery 📸</h2>
-  <p>Add your photos here</p>
-</section>
-
+<!-- ========================= -->
+<!-- 🌙 FUTURO -->
+<!-- ========================= -->
 <section id="future">
   <h2>Our Future 🌙</h2>
   <p>I want to spend my life with you...</p>
 </section>
 
+<!-- ========================= -->
+<!-- 🌌 GALAXIA FINAL -->
+<!-- ========================= -->
+<section id="galaxy-section">
+
+  <!-- Canvas donde se dibuja el espacio -->
+  <canvas id="galaxy"></canvas>
+
+  <!-- Texto central -->
+  <div class="center-text">I LOVE YOU 💖</div>
+
+</section>
+
+<!-- JS -->
 <script src="script.js"></script>
+
 </body>
 </html>
