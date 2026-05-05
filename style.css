@@ -1,39 +1,56 @@
-#galaxy {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: black;
+// 🌌 CANVAS
+const canvas = document.getElementById("galaxy");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// ⭐ estrellas
+let stars = [];
+for (let i = 0; i < 300; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2
+  });
 }
 
-/* TEXTO CENTRAL */
-.center-text {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 0 0 20px pink;
-  z-index: 10;
+function drawStars() {
+  ctx.fillStyle = "rgba(0,0,0,0.3)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "white";
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(drawStars);
 }
 
-/* FRASES GIRANDO */
-.love {
-  position: fixed;
-  color: white;
-  font-size: 14px;
-  opacity: 0.8;
-  animation: orbit 10s linear infinite;
-}
+drawStars();
 
-@keyframes orbit {
-  from {
-    transform: rotate(0deg) translateX(150px) rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg) translateX(150px) rotate(-360deg);
-  }
-}
+
+// 💖 MUCHOS IDIOMAS
+const phrases = [
+  "Te amo", "I love you", "Je t’aime", "Ti amo", "Ich liebe dich",
+  "Eu te amo", "愛してる", "사랑해", "Я тебя люблю", "Te iubesc",
+  "Seni seviyorum", "Ana behibek", "Ik hou van jou", "Jag älskar dig",
+  "Jeg elsker dig", "Minä rakastan sinua", "Mahal kita", "Saya cinta kamu",
+  "Kocham cię", "Ngiyakuthanda", "Aloha wau iā ʻoe", "Wo ai ni",
+  "Anh yêu em", "ฉันรักคุณ", "Main tumse pyaar karta hoon",
+  "Ek het jou lief", "Volim te", "Te iubesc", "Es tevi mīlu"
+];
+
+// 🪐 crear órbita
+phrases.forEach((text, i) => {
+  const el = document.createElement("div");
+  el.className = "love";
+  el.innerText = text;
+
+  el.style.animationDelay = (i * 0.5) + "s";
+  el.style.transform = `rotate(${i * 15}deg) translateX(200px)`;
+
+  document.body.appendChild(el);
+});
