@@ -88,4 +88,23 @@ button:hover {
     transform: translateY(-100vh);
     opacity: 0;
   }
+  nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  }
 }
