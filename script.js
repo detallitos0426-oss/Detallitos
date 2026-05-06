@@ -109,8 +109,10 @@ const phrases = [
 ];
 
 /* ========================= */
-/* 🪐 CREAR TEXTO ORBITANDO */
+/* 🪐 CREAR TEXTOS SOLO EN GALAXY */
 /* ========================= */
+const galaxySection = document.getElementById("galaxy");
+
 phrases.forEach((text, i) => {
 
   const el = document.createElement("div");
@@ -118,7 +120,7 @@ phrases.forEach((text, i) => {
   el.className = "love";
   el.innerText = text;
 
-  // distribuir alrededor
+  // posición circular
   const angle = (Math.PI * 2 / phrases.length) * i;
 
   const radius = 250;
@@ -126,11 +128,12 @@ phrases.forEach((text, i) => {
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
-  el.style.position = "fixed";
   el.style.left = `calc(50% + ${x}px)`;
   el.style.top = `calc(50% + ${y}px)`;
 
-  document.body.appendChild(el);
+  // 👇 IMPORTANTE
+  galaxySection.appendChild(el);
+
 });
 
 /* ========================= */
