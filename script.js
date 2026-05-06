@@ -109,9 +109,11 @@ const phrases = [
 ];
 
 /* ========================= */
-/* 🪐 CREAR TEXTOS SOLO EN GALAXY */
+/* 🪐 TEXTOS ORBITANDO */
 /* ========================= */
 const galaxySection = document.getElementById("galaxy");
+
+let orbitTexts = [];
 
 phrases.forEach((text, i) => {
 
@@ -120,19 +122,13 @@ phrases.forEach((text, i) => {
   el.className = "love";
   el.innerText = text;
 
-  // posición circular
-  const angle = (Math.PI * 2 / phrases.length) * i;
-
-  const radius = 250;
-
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-
-  el.style.left = `calc(50% + ${x}px)`;
-  el.style.top = `calc(50% + ${y}px)`;
-
-  // 👇 IMPORTANTE
   galaxySection.appendChild(el);
+
+  orbitTexts.push({
+    element: el,
+    angle: (Math.PI * 2 / phrases.length) * i,
+    radius: 260
+  });
 
 });
 
@@ -143,8 +139,8 @@ let rotation = 0;
 
 function draw() {
 
-  // fondo negro
-  ctx.fillStyle = "black";
+  // fondo espacial suave
+  ctx.fillStyle = "rgba(0,0,0,0.25)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // estrellas
@@ -157,50 +153,89 @@ function draw() {
   });
 
   /* ========================= */
-  /* 🕳️ AGUJERO NEGRO */
+  /* 🌌 AURA */
   /* ========================= */
-
-  // brillo exterior
   const glow = ctx.createRadialGradient(
     centerX,
     centerY,
     20,
     centerX,
     centerY,
-    180
+    260
   );
 
-  glow.addColorStop(0, "rgba(255,105,180,0.8)");
-  glow.addColorStop(0.5, "rgba(128,0,255,0.4)");
+  glow.addColorStop(0, "rgba(255,105,180,0.9)");
+  glow.addColorStop(0.4, "rgba(128,0,255,0.5)");
   glow.addColorStop(1, "rgba(0,0,0,0)");
 
   ctx.fillStyle = glow;
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 180, 0, Math.PI * 2);
+  ctx.arc(centerX, centerY, 260, 0, Math.PI * 2);
   ctx.fill();
 
-  // núcleo negro
+  /* ========================= */
+  /* 🕳️ AGUJERO NEGRO */
+  /* ========================= */
   ctx.fillStyle = "black";
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 90, 0, Math.PI * 2);
+  ctx.arc(centerX, centerY, 100, 0, Math.PI * 2);
   ctx.fill();
 
-  // anillo girando
+  /* ========================= */
+  /* 💖 NÚCLEO LATIENDO */
+  /* ========================= */
+  ctx.beginPath();
+
+  ctx.fillStyle = "hotpink";
+
+  ctx.arc(
+    centerX,
+    centerY,
+    18 + Math.sin(rotation * 6) * 6,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.shadowColor = "hotpink";
+  ctx.shadowBlur = 40;
+
+  ctx.fill();
+
+  ctx.shadowBlur = 0;
+
+  /* ========================= */
+  /* 🪐 ANILLO GIRANDO */
+  /* ========================= */
   ctx.save();
 
   ctx.translate(centerX, centerY);
   ctx.rotate(rotation);
 
-  ctx.strokeStyle = "hotpink";
-  ctx.lineWidth = 8;
+  ctx.strokeStyle = "rgba(255,20,147,0.8)";
+  ctx.lineWidth = 10;
 
   ctx.beginPath();
-  ctx.ellipse(0, 0, 180, 70, 0, 0, Math.PI * 2);
+  ctx.ellipse(0, 0, 220, 90, 0, 0, Math.PI * 2);
   ctx.stroke();
 
   ctx.restore();
+
+  /* ========================= */
+  /* 💖 TEXTOS MOVIÉNDOSE */
+  /* ========================= */
+  orbitTexts.forEach(obj => {
+
+    obj.angle += 0.002;
+
+    const x = centerX + Math.cos(obj.angle) * obj.radius;
+    const y = centerY + Math.sin(obj.angle) * obj.radius;
+
+    obj.element.style.left = `${x}px`;
+    obj.element.style.top = `${y}px`;
+
+  });
 
   rotation += 0.01;
 
