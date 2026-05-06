@@ -5,60 +5,11 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  height: 100vh;
+  color: white;
   overflow: hidden;
-  color: white;
 }
 
-/* ========================= */
-/* CONTENEDOR */
-/* ========================= */
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  text-align: center;
-}
-
-/* ========================= */
-/* TEXTO */
-/* ========================= */
-h1 {
-  font-size: 3rem;
-  animation: fadeIn 2s ease;
-}
-
-p {
-  font-size: 1.3rem;
-  margin-top: 10px;
-  animation: fadeIn 3s ease;
-}
-
-/* ========================= */
-/* BOTÓN */
-/* ========================= */
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background: white;
-  color: #ff6f91;
-  font-size: 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #ff6f91;
-  color: white;
-}
-
-/* ========================= */
-/* NAV (CORRECTO) */
-/* ========================= */
+/* NAV */
 nav {
   position: fixed;
   width: 100%;
@@ -79,23 +30,49 @@ nav a {
   text-decoration: none;
 }
 
-/* ========================= */
-/* SECCIONES (IMPORTANTE) */
-/* ========================= */
+/* SECCIONES */
 section {
   display: none;
+  height: 100vh;
 }
 
 .active {
   display: block;
 }
 
-/* ========================= */
+/* CONTENEDOR */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+/* TEXTO */
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+/* BOTÓN */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: #ff6f91;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 /* GALERÍA */
-/* ========================= */
 .gallery {
   display: flex;
-  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }
@@ -105,23 +82,21 @@ section {
   border-radius: 15px;
 }
 
-/* ========================= */
-/* ANIMACIONES */
-/* ========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* GALAXIA */
+#galaxyCanvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
-/* ========================= */
+.center-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* CORAZONES */
-/* ========================= */
 .heart {
   position: absolute;
   font-size: 20px;
@@ -129,10 +104,6 @@ section {
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
   100% {
     transform: translateY(-100vh);
     opacity: 0;
