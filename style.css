@@ -356,7 +356,9 @@ p {
     #000000 70%);
 }
 
-/* nebulosa */
+/* ========================= */
+/* 🌌 NEBULOSA */
+/* ========================= */
 #galaxy::before {
 
   content: "";
@@ -371,9 +373,66 @@ p {
     transparent 60%);
 
   pointer-events: none;
+
+  animation: nebulaPulse 6s infinite alternate;
 }
 
-/* canvas */
+/* respiración nebulosa */
+@keyframes nebulaPulse {
+
+  from {
+
+    opacity: 0.5;
+
+    transform: scale(1);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: scale(1.1);
+  }
+}
+
+/* ========================= */
+/* ✨ ESTRELLAS FONDO */
+/* ========================= */
+#galaxy::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  opacity: 0.08;
+
+  animation: starsMove 40s linear infinite;
+
+  pointer-events: none;
+}
+
+/* movimiento estrellas */
+@keyframes starsMove {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* ========================= */
+/* 🎨 CANVAS */
+/* ========================= */
 #galaxyCanvas {
 
   position: fixed;
@@ -404,6 +463,8 @@ p {
 
   font-weight: bold;
 
+  letter-spacing: 4px;
+
   color: white;
 
   text-shadow:
@@ -414,10 +475,12 @@ p {
 
   z-index: 10;
 
-  animation: glowPulse 3s infinite alternate;
+  animation:
+    glowPulse 3s infinite alternate,
+    floating 4s ease-in-out infinite;
 }
 
-/* respiración núcleo */
+/* brillo corazón */
 @keyframes glowPulse {
 
   from {
@@ -438,8 +501,33 @@ p {
   }
 }
 
+/* flotando */
+@keyframes floating {
+
+  0% {
+
+    transform:
+      translate(-50%, -50%)
+      translateY(0px);
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, -50%)
+      translateY(-10px);
+  }
+
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      translateY(0px);
+  }
+}
+
 /* ========================= */
-/* 🪐 PLANETAS */
+/* 🪐 PLANETAS / TE AMO */
 /* ========================= */
 .love {
 
@@ -473,16 +561,35 @@ p {
   pointer-events: none;
 
   animation: pulse 3s infinite alternate;
+
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
-/* efecto respiración */
+/* glow hover */
+.love:hover {
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+
+  box-shadow:
+    0 0 20px hotpink,
+    0 0 40px purple,
+    0 0 60px deeppink;
+}
+
+/* respiración */
 @keyframes pulse {
 
   from {
+
     opacity: 0.6;
   }
 
   to {
+
     opacity: 1;
   }
 }
@@ -516,33 +623,15 @@ p {
 /* ========================= */
 @media(max-width: 900px) {
 
-  .hero-card {
+  .center-text {
 
-    grid-template-columns: 1fr;
+    font-size: 1.8rem;
   }
 
-  .hero-info {
+  .love {
 
-    padding: 40px;
-  }
+    font-size: 11px;
 
-  .hero-info h1 {
-
-    font-size: 3rem;
-  }
-
-  .date {
-
-    font-size: 1.3rem;
-  }
-
-  .story-card {
-
-    padding: 35px;
-  }
-
-  .gallery img {
-
-    width: 160px;
+    padding: 5px 10px;
   }
 }
