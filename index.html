@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy 1 Year & 1 Month 💖</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ========================= -->
-<!-- 🔝 NAV AGREGADO (NO AFECTA LO DEMÁS) -->
-<!-- ========================= -->
+<!-- NAV -->
 <nav>
   <ul>
-    <li><a href="index.html">Inicio 💖</a></li>
-    <li><a href="momentos.html">Momentos 💕</a></li>
-    <li><a href="galaxy.html">Galaxy 🌌</a></li>
+    <li><a href="#" onclick="showSection('home')">Inicio 💖</a></li>
+    <li><a href="#" onclick="showSection('momentos')">Momentos 💕</a></li>
+    <li><a href="#" onclick="showSection('galaxy')">Galaxy 🌌</a></li>
   </ul>
 </nav>
 
-<div class="container">
+<!-- ========================= -->
+<!-- 💖 HOME -->
+<!-- ========================= -->
+<section id="home" class="active">
 
+<div class="container">
   <h1>Happy 1 Year & 1 Month 💖</h1>
 
   <p>
@@ -30,18 +30,45 @@
   </p>
 
   <button onclick="showMessage()">Click me 💌</button>
+</div>
 
-  <!-- ========================= -->
-  <!-- 💕 BOTÓN NUEVO -->
-  <!-- ========================= -->
-  <br><br>
-  <a href="momentos.html">
-    <button>See Our Moments 📸</button>
-  </a>
+</section>
+
+<!-- ========================= -->
+<!-- 💕 MOMENTOS -->
+<!-- ========================= -->
+<section id="momentos">
+
+<div class="container">
+
+  <h1>Momentos Juntos 💖</h1>
+
+  <p>
+    Amo cada momento contigo, cada sonrisa, cada abrazo 💕 <br>
+    Eres lo mejor que me ha pasado 💖
+  </p>
+
+  <div class="gallery">
+    <img src="https://picsum.photos/300?1">
+    <img src="https://picsum.photos/300?2">
+    <img src="https://picsum.photos/300?3">
+    <img src="https://picsum.photos/300?4">
+  </div>
 
 </div>
 
-<!-- JS -->
+</section>
+
+<!-- ========================= -->
+<!-- 🌌 GALAXY -->
+<!-- ========================= -->
+<section id="galaxy">
+
+<canvas id="galaxyCanvas"></canvas>
+<div class="center-text">I LOVE YOU 💖</div>
+
+</section>
+
 <script src="script.js"></script>
 
 </body>
