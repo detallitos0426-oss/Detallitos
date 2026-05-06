@@ -24,7 +24,7 @@ setInterval(() => {
 }, 300);
 
 /* ========================= */
-/* 📂 SECCIONES */
+/* 📂 CAMBIAR SECCIONES */
 /* ========================= */
 function showSection(id) {
 
@@ -55,16 +55,19 @@ let stars = [];
 for (let i = 0; i < 400; i++) {
 
   stars.push({
+
     x: Math.random() * canvas.width,
+
     y: Math.random() * canvas.height,
+
     size: Math.random() * 2,
+
     speed: Math.random() * 0.2
   });
-
 }
 
 /* ========================= */
-/* 🪐 FRASES */
+/* 🪐 TE AMO EN IDIOMAS */
 /* ========================= */
 const phrases = [
 
@@ -84,11 +87,24 @@ const phrases = [
   "🪐 Mahal kita (Philippines)",
   "🪐 Ik hou van jou (Netherlands)",
   "🪐 Jag älskar dig (Sweden)",
+
   "🪐 Seni seviyorum (Turkey)",
   "🪐 Wo ai ni (China)",
   "🪐 Chan rak khun (Thailand)",
   "🪐 S'agapo (Greece)",
-  "🪐 Nakupenda (Kenya)"
+  "🪐 Nakupenda (Kenya)",
+
+  "🪐 Te iubesc (Romania)",
+  "🪐 Main tumse pyaar karta hoon (India)",
+  "🪐 Mi amas vin (Esperanto)",
+  "🪐 Is breá liom thú (Ireland)",
+  "🪐 Lubim ta (Slovakia)",
+
+  "🪐 Te dua (Albania)",
+  "🪐 Aloha wau iā ʻoe (Hawaii)",
+  "🪐 Ngiyakuthanda (South Africa)",
+  "🪐 Ek is lief vir jou (Afrikaans)",
+  "🪐 Obicham te (Bulgaria)"
 
 ];
 
@@ -107,6 +123,7 @@ phrases.forEach((text, i) => {
   const el = document.createElement("div");
 
   el.className = "love";
+
   el.innerText = text;
 
   galaxySection.appendChild(el);
@@ -115,11 +132,14 @@ phrases.forEach((text, i) => {
 
     element: el,
 
-    angle: (Math.PI * 2 / phrases.length) * i,
+    angle:
+      (Math.PI * 2 / phrases.length) * i,
 
-    radius: i % 2 === 0 ? 260 : 340,
+    radius:
+      i % 2 === 0 ? 260 : 340,
 
-    speed: 0.001 + Math.random() * 0.002
+    speed:
+      0.001 + Math.random() * 0.002
   });
 
 });
@@ -146,7 +166,15 @@ function draw() {
   stars.forEach(s => {
 
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+
+    ctx.arc(
+      s.x,
+      s.y,
+      s.size,
+      0,
+      Math.PI * 2
+    );
+
     ctx.fill();
 
     s.y += s.speed;
@@ -169,14 +197,33 @@ function draw() {
     320
   );
 
-  glow.addColorStop(0, "rgba(255,20,147,0.9)");
-  glow.addColorStop(0.3, "rgba(128,0,255,0.4)");
-  glow.addColorStop(1, "rgba(0,0,0,0)");
+  glow.addColorStop(
+    0,
+    "rgba(255,20,147,0.9)"
+  );
+
+  glow.addColorStop(
+    0.3,
+    "rgba(128,0,255,0.4)"
+  );
+
+  glow.addColorStop(
+    1,
+    "rgba(0,0,0,0)"
+  );
 
   ctx.fillStyle = glow;
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 320, 0, Math.PI * 2);
+
+  ctx.arc(
+    centerX,
+    centerY,
+    320,
+    0,
+    Math.PI * 2
+  );
+
   ctx.fill();
 
   /* ========================= */
@@ -184,14 +231,22 @@ function draw() {
   /* ========================= */
   ctx.beginPath();
 
-  const pulse = 35 + Math.sin(rotation * 5) * 8;
+  const pulse =
+    35 + Math.sin(rotation * 5) * 8;
 
   ctx.fillStyle = "hotpink";
 
   ctx.shadowColor = "hotpink";
+
   ctx.shadowBlur = 60;
 
-  ctx.arc(centerX, centerY, pulse, 0, Math.PI * 2);
+  ctx.arc(
+    centerX,
+    centerY,
+    pulse,
+    0,
+    Math.PI * 2
+  );
 
   ctx.fill();
 
@@ -206,19 +261,42 @@ function draw() {
 
   ctx.rotate(rotation);
 
-  ctx.strokeStyle = "rgba(255,20,147,0.7)";
+  ctx.strokeStyle =
+    "rgba(255,20,147,0.7)";
+
   ctx.lineWidth = 8;
 
   ctx.beginPath();
-  ctx.ellipse(0, 0, 250, 100, 0, 0, Math.PI * 2);
+
+  ctx.ellipse(
+    0,
+    0,
+    250,
+    100,
+    0,
+    0,
+    Math.PI * 2
+  );
+
   ctx.stroke();
 
   ctx.rotate(rotation * 0.5);
 
-  ctx.strokeStyle = "rgba(128,0,255,0.5)";
+  ctx.strokeStyle =
+    "rgba(128,0,255,0.5)";
 
   ctx.beginPath();
-  ctx.ellipse(0, 0, 340, 150, 0, 0, Math.PI * 2);
+
+  ctx.ellipse(
+    0,
+    0,
+    340,
+    150,
+    0,
+    0,
+    Math.PI * 2
+  );
+
   ctx.stroke();
 
   ctx.restore();
@@ -226,17 +304,34 @@ function draw() {
   /* ========================= */
   /* 🪐 ÓRBITAS */
   /* ========================= */
-  orbitTexts.forEach(obj => {
+  orbitTexts.forEach((obj) => {
 
+    /* velocidad */
     obj.angle += obj.speed;
 
-    const x = centerX + Math.cos(obj.angle) * obj.radius;
+    /* movimiento */
+    const x =
+      centerX +
+      Math.cos(obj.angle) * obj.radius;
 
-    const y = centerY + Math.sin(obj.angle) * (obj.radius * 0.45);
+    const y =
+      centerY +
+      Math.sin(obj.angle) *
+      (obj.radius * 0.45);
 
+    /* posición */
     obj.element.style.left = `${x}px`;
 
     obj.element.style.top = `${y}px`;
+
+    /* ========================= */
+    /* 🌀 GIRAR TEXTO */
+    /* ========================= */
+    const rotate =
+      obj.angle * 50;
+
+    obj.element.style.transform =
+      `translate(-50%, -50%) rotate(${rotate}deg)`;
 
   });
 
