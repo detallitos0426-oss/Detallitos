@@ -1,16 +1,14 @@
-/* ========================= */
-/* MENSAJE */
-/* ========================= */
 function showMessage() {
   alert("You are my everything 💖");
 }
 
 /* ========================= */
-/* CORAZONES FLOTANDO */
+/* 💖 CORAZONES */
 /* ========================= */
 setInterval(() => {
 
   const heart = document.createElement("div");
+
   heart.className = "heart";
   heart.innerHTML = "💖";
 
@@ -26,7 +24,7 @@ setInterval(() => {
 }, 300);
 
 /* ========================= */
-/* CAMBIAR SECCIONES */
+/* 📂 SECCIONES */
 /* ========================= */
 function showSection(id) {
 
@@ -38,7 +36,7 @@ function showSection(id) {
 }
 
 /* ========================= */
-/* 🌌 GALAXIA / AGUJERO NEGRO */
+/* 🌌 CANVAS */
 /* ========================= */
 const canvas = document.getElementById("galaxyCanvas");
 const ctx = canvas.getContext("2d");
@@ -54,67 +52,56 @@ const centerY = canvas.height / 2;
 /* ========================= */
 let stars = [];
 
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 400; i++) {
+
   stars.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    size: Math.random() * 2
+    size: Math.random() * 2,
+    speed: Math.random() * 0.2
   });
+
 }
 
 /* ========================= */
-/* 💖 40 IDIOMAS */
+/* 🪐 FRASES */
 /* ========================= */
 const phrases = [
-  "Te amo",
-  "I love you",
-  "Je t’aime",
-  "Ti amo",
-  "Ich liebe dich",
-  "Eu te amo",
-  "愛してる",
-  "사랑해",
-  "Я тебя люблю",
-  "Te iubesc",
-  "Kocham cię",
-  "Volim te",
-  "Anh yêu em",
-  "Saya cinta kamu",
-  "Ik hou van jou",
-  "Jag älskar dig",
-  "Minä rakastan sinua",
-  "Seni seviyorum",
-  "Mahal kita",
-  "Main tumse pyaar karta hoon",
-  "Aloha wau iā ʻoe",
-  "Ngiyakuthanda",
-  "Ek is lief vir jou",
-  "Wo ai ni",
-  "Chan rak khun",
-  "Mi amas vin",
-  "Is breá liom thú",
-  "Kimi o ai shiteru",
-  "Obicham te",
-  "Lubim ta",
-  "Te dua",
-  "Ngo oi ney",
-  "Ina sonki",
-  "Ani ohev otach",
-  "Ya tebya lyublyu",
-  "Mo ni fe re",
-  "Nakupenda",
-  "Eu amo-te",
-  "Phom rak khun",
-  "S'agapo"
+
+  "🪐 Te amo (Costa Rica)",
+  "🪐 I love you (USA)",
+  "🪐 Je t’aime (France)",
+  "🪐 Ti amo (Italy)",
+  "🪐 愛してる (Japan)",
+  "🪐 사랑해 (South Korea)",
+  "🪐 Ich liebe dich (Germany)",
+  "🪐 Eu te amo (Brazil)",
+  "🪐 Я тебя люблю (Russia)",
+  "🪐 Te quiero (Mexico)",
+
+  "🪐 Kocham cię (Poland)",
+  "🪐 Volim te (Croatia)",
+  "🪐 Mahal kita (Philippines)",
+  "🪐 Ik hou van jou (Netherlands)",
+  "🪐 Jag älskar dig (Sweden)",
+  "🪐 Seni seviyorum (Turkey)",
+  "🪐 Wo ai ni (China)",
+  "🪐 Chan rak khun (Thailand)",
+  "🪐 S'agapo (Greece)",
+  "🪐 Nakupenda (Kenya)"
+
 ];
 
 /* ========================= */
-/* 🪐 TEXTOS ORBITANDO */
+/* 🌌 GALAXIA */
 /* ========================= */
 const galaxySection = document.getElementById("galaxy");
 
 let orbitTexts = [];
 
+/* ========================= */
+/* 🪐 CREAR PLANETAS */
+/* ========================= */
 phrases.forEach((text, i) => {
 
   const el = document.createElement("div");
@@ -125,35 +112,53 @@ phrases.forEach((text, i) => {
   galaxySection.appendChild(el);
 
   orbitTexts.push({
+
     element: el,
+
     angle: (Math.PI * 2 / phrases.length) * i,
-    radius: 260
+
+    radius: i % 2 === 0 ? 260 : 340,
+
+    speed: 0.001 + Math.random() * 0.002
   });
 
 });
 
 /* ========================= */
-/* 🌌 ANIMACIÓN */
+/* 🌌 ROTACIÓN */
 /* ========================= */
 let rotation = 0;
 
+/* ========================= */
+/* 🌌 DIBUJAR */
+/* ========================= */
 function draw() {
 
-  // fondo espacial suave
-  ctx.fillStyle = "rgba(0,0,0,0.25)";
+  /* fondo espacial */
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // estrellas
+  /* ========================= */
+  /* ⭐ ESTRELLAS */
+  /* ========================= */
   ctx.fillStyle = "white";
 
   stars.forEach(s => {
+
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
     ctx.fill();
+
+    s.y += s.speed;
+
+    if (s.y > canvas.height) {
+      s.y = 0;
+    }
+
   });
 
   /* ========================= */
-  /* 🌌 AURA */
+  /* 🌌 NEBULOSA */
   /* ========================= */
   const glow = ctx.createRadialGradient(
     centerX,
@@ -161,78 +166,76 @@ function draw() {
     20,
     centerX,
     centerY,
-    260
+    320
   );
 
-  glow.addColorStop(0, "rgba(255,105,180,0.9)");
-  glow.addColorStop(0.4, "rgba(128,0,255,0.5)");
+  glow.addColorStop(0, "rgba(255,20,147,0.9)");
+  glow.addColorStop(0.3, "rgba(128,0,255,0.4)");
   glow.addColorStop(1, "rgba(0,0,0,0)");
 
   ctx.fillStyle = glow;
 
   ctx.beginPath();
-  ctx.arc(centerX, centerY, 260, 0, Math.PI * 2);
+  ctx.arc(centerX, centerY, 320, 0, Math.PI * 2);
   ctx.fill();
 
   /* ========================= */
-  /* 🕳️ AGUJERO NEGRO */
-  /* ========================= */
-  ctx.fillStyle = "black";
-
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, 100, 0, Math.PI * 2);
-  ctx.fill();
-
-  /* ========================= */
-  /* 💖 NÚCLEO LATIENDO */
+  /* 💖 NÚCLEO */
   /* ========================= */
   ctx.beginPath();
+
+  const pulse = 35 + Math.sin(rotation * 5) * 8;
 
   ctx.fillStyle = "hotpink";
 
-  ctx.arc(
-    centerX,
-    centerY,
-    18 + Math.sin(rotation * 6) * 6,
-    0,
-    Math.PI * 2
-  );
-
   ctx.shadowColor = "hotpink";
-  ctx.shadowBlur = 40;
+  ctx.shadowBlur = 60;
+
+  ctx.arc(centerX, centerY, pulse, 0, Math.PI * 2);
 
   ctx.fill();
 
   ctx.shadowBlur = 0;
 
   /* ========================= */
-  /* 🪐 ANILLO GIRANDO */
+  /* 🪐 ANILLOS */
   /* ========================= */
   ctx.save();
 
   ctx.translate(centerX, centerY);
+
   ctx.rotate(rotation);
 
-  ctx.strokeStyle = "rgba(255,20,147,0.8)";
-  ctx.lineWidth = 10;
+  ctx.strokeStyle = "rgba(255,20,147,0.7)";
+  ctx.lineWidth = 8;
 
   ctx.beginPath();
-  ctx.ellipse(0, 0, 220, 90, 0, 0, Math.PI * 2);
+  ctx.ellipse(0, 0, 250, 100, 0, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.rotate(rotation * 0.5);
+
+  ctx.strokeStyle = "rgba(128,0,255,0.5)";
+
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 340, 150, 0, 0, Math.PI * 2);
   ctx.stroke();
 
   ctx.restore();
 
   /* ========================= */
-  /* 💖 TEXTOS MOVIÉNDOSE */
+  /* 🪐 ÓRBITAS */
   /* ========================= */
   orbitTexts.forEach(obj => {
 
-    obj.angle += 0.002;
+    obj.angle += obj.speed;
 
     const x = centerX + Math.cos(obj.angle) * obj.radius;
-    const y = centerY + Math.sin(obj.angle) * obj.radius;
+
+    const y = centerY + Math.sin(obj.angle) * (obj.radius * 0.45);
 
     obj.element.style.left = `${x}px`;
+
     obj.element.style.top = `${y}px`;
 
   });
@@ -242,5 +245,7 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-/* iniciar */
+/* ========================= */
+/* 🚀 INICIAR */
+/* ========================= */
 draw();
