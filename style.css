@@ -422,10 +422,12 @@ p {
 @keyframes starsMove {
 
   from {
+
     transform: translateY(0);
   }
 
   to {
+
     transform: translateY(-200px);
   }
 }
@@ -444,6 +446,8 @@ p {
   top: 0;
 
   left: 0;
+
+  z-index: 1;
 }
 
 /* ========================= */
@@ -565,6 +569,8 @@ p {
   transition:
     transform 0.3s,
     box-shadow 0.3s;
+
+  z-index: 20;
 }
 
 /* glow hover */
