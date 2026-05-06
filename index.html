@@ -2,21 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Our Love 💖</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- ========================= -->
-<!-- NAV -->
+<!-- 💖 NAV -->
 <!-- ========================= -->
 <nav>
   <ul>
-    <li><a href="#" onclick="showSection('home')">Inicio 💖</a></li>
-    <li><a href="#" onclick="showSection('momentos')">Momentos 💕</a></li>
-    <li><a href="#" onclick="showSection('galaxy')">Galaxy 🌌</a></li>
+
+    <li>
+      <a href="#" onclick="showSection('home')">
+        Inicio 💖
+      </a>
+    </li>
+
+    <li>
+      <a href="#" onclick="showSection('momentos')">
+        Momentos 💕
+      </a>
+    </li>
+
+    <li>
+      <a href="#" onclick="showSection('galaxy')">
+        Galaxy 🌌
+      </a>
+    </li>
+
   </ul>
 </nav>
 
@@ -26,14 +45,22 @@
 <section id="home" class="active">
 
   <div class="container">
-    <h1>Happy 1 Year & 1 Month 💖</h1>
+
+    <h1>
+      Happy 1 Year & 1 Month 💖
+    </h1>
 
     <p>
-      Thank you for being the most beautiful part of my life. <br>
+      Thank you for being the most beautiful part of my life.
+      <br><br>
+
       I love you more than words can explain.
     </p>
 
-    <button onclick="showMessage()">Click me 💌</button>
+    <button onclick="showMessage()">
+      Click me 💌
+    </button>
+
   </div>
 
 </section>
@@ -45,18 +72,33 @@
 
   <div class="container">
 
-    <h1>Momentos Juntos 💖</h1>
+    <h1>
+      Momentos Juntos 💖
+    </h1>
 
     <p>
-      Amo cada momento contigo, cada sonrisa, cada abrazo 💕 <br>
+      Amo cada momento contigo,
+      cada sonrisa,
+      cada abrazo 💕
+
+      <br><br>
+
       Eres lo mejor que me ha pasado 💖
     </p>
 
+    <!-- ========================= -->
+    <!-- 📸 GALERÍA -->
+    <!-- ========================= -->
     <div class="gallery">
+
       <img src="https://picsum.photos/300?1">
+
       <img src="https://picsum.photos/300?2">
+
       <img src="https://picsum.photos/300?3">
+
       <img src="https://picsum.photos/300?4">
+
     </div>
 
   </div>
@@ -68,12 +110,19 @@
 <!-- ========================= -->
 <section id="galaxy">
 
+  <!-- CANVAS -->
   <canvas id="galaxyCanvas"></canvas>
-  <div class="center-text">I LOVE YOU 💖</div>
+
+  <!-- CENTRO -->
+  <div class="center-text">
+    OUR LOVE 🌌💖
+  </div>
 
 </section>
 
-<!-- JS -->
+<!-- ========================= -->
+<!-- ✨ JAVASCRIPT -->
+<!-- ========================= -->
 <script src="script.js"></script>
 
 </body>
