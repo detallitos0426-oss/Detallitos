@@ -129,9 +129,25 @@ button:hover {
 #galaxy {
   position: relative;
   overflow: hidden;
-  background: black;
+  background: radial-gradient(circle at center, #1a001f 0%, #000000 70%);
 }
 
+/* nebulosa */
+#galaxy::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at center,
+    rgba(255,20,147,0.15),
+    transparent 60%);
+
+  pointer-events: none;
+}
+
+/* canvas */
 #galaxyCanvas {
   position: fixed;
   width: 100%;
@@ -148,26 +164,65 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.3rem;
+
+  font-size: 2.5rem;
   font-weight: bold;
+
   color: white;
 
   text-shadow:
     0 0 10px hotpink,
     0 0 20px hotpink,
-    0 0 40px purple;
+    0 0 40px purple,
+    0 0 80px deeppink;
 
   z-index: 10;
+
+  animation: glowPulse 3s infinite alternate;
+}
+
+/* respiración núcleo */
+@keyframes glowPulse {
+
+  from {
+    text-shadow:
+      0 0 10px hotpink,
+      0 0 20px hotpink,
+      0 0 40px purple;
+  }
+
+  to {
+    text-shadow:
+      0 0 20px hotpink,
+      0 0 40px hotpink,
+      0 0 80px purple,
+      0 0 120px deeppink;
+  }
 }
 
 /* ========================= */
-/* TEXTOS ORBITANDO */
+/* PLANETAS / TEXTOS */
 /* ========================= */
 .love {
+
   position: absolute;
 
   color: white;
   font-size: 14px;
+
+  padding: 6px 12px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(4px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 0 10px rgba(255,20,147,0.5),
+    0 0 20px rgba(128,0,255,0.4);
 
   text-shadow:
     0 0 5px hotpink,
@@ -181,8 +236,19 @@ button:hover {
   animation: pulse 3s infinite alternate;
 }
 
+/* brillo planetas */
+.love:hover {
+
+  transform: translate(-50%, -50%) scale(1.1);
+
+  box-shadow:
+    0 0 20px hotpink,
+    0 0 40px purple;
+}
+
 /* efecto respiración */
 @keyframes pulse {
+
   from {
     opacity: 0.6;
   }
@@ -203,6 +269,7 @@ button:hover {
 }
 
 @keyframes float {
+
   100% {
     transform: translateY(-100vh);
     opacity: 0;
