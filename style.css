@@ -182,68 +182,262 @@ nav li:hover{
     0 0 30px rgba(255,0,120,.3);
 }
 
-/* 🌌 GALAXIA */
+/* ========================= */
+/* 🌌 GALAXIA ULTRA */
+/* ========================= */
 
-.galaxia h1{
-    font-size:5rem;
-
-    text-shadow:
-    0 0 20px white,
-    0 0 50px white;
+.galaxia{
+    overflow:hidden;
+    position:relative;
 }
 
-.orbit{
+/* FONDO GLOW */
 
-    position:relative;
+.space-bg{
+    position:absolute;
 
-    width:450px;
-    height:450px;
+    width:900px;
+    height:900px;
 
-    border:2px solid rgba(255,255,255,.2);
+    background:
+    radial-gradient(circle,
+    rgba(255,0,180,.35),
+    rgba(111,0,255,.25),
+    transparent 70%);
 
     border-radius:50%;
 
-    margin-top:40px;
+    filter:blur(100px);
 
-    animation:spin 20s linear infinite;
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
 }
 
-@keyframes spin{
+/* CONTENEDOR */
 
-    from{
-        transform:rotate(0deg);
-    }
+.galaxy-wrapper{
+    position:relative;
 
-    to{
-        transform:rotate(360deg);
-    }
+    width:900px;
+    height:900px;
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.word{
+/* NÚCLEO */
+
+.galaxy-core{
     position:absolute;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #ff3bd4,
+    #6c00ff,
+    #14001f);
+
+    box-shadow:
+    0 0 80px #ff00ff,
+    0 0 150px #8400ff;
+
+    z-index:5;
+
+    animation:pulse 4s infinite alternate;
+}
+
+/* TEXTO CENTRAL */
+
+.love-title{
+    position:absolute;
+
+    font-size:4rem;
+    font-weight:800;
+
     color:white;
-    font-weight:600;
+
+    z-index:100;
+
+    text-shadow:
+    0 0 20px white,
+    0 0 40px #ff00ff,
+    0 0 80px #ff00ff;
 }
 
-.word1{
-    top:-10px;
+/* ÓRBITAS */
+
+.atom{
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    border:7px solid #c800ff;
+
+    box-shadow:
+    0 0 20px #ff00ff,
+    0 0 70px #8000ff;
+
+    z-index:10;
+}
+
+.atom1{
+    transform:rotate(65deg);
+
+    animation:spin1 10s linear infinite;
+}
+
+.atom2{
+    transform:rotate(-65deg);
+
+    animation:spin2 10s linear infinite;
+}
+
+/* ÓRBITA GRANDE */
+
+.outer-ring{
+    position:absolute;
+
+    width:760px;
+    height:760px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    animation:spin3 45s linear infinite;
+}
+
+/* PLANETAS */
+
+.planet{
+    position:absolute;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+
+    font-weight:700;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 15px white,
+    0 0 30px #ff00ff;
+
+    width:150px;
+
+    transition:.5s;
+}
+
+.planet:hover{
+    transform:scale(1.15);
+}
+
+.planet span{
+    font-size:1.1rem;
+}
+
+.planet small{
+    font-size:.9rem;
+    opacity:.9;
+}
+
+/* POSICIONES */
+
+.p1{
+    top:-50px;
     left:50%;
+    transform:translateX(-50%);
 }
 
-.word2{
+.p2{
+    top:40px;
     right:-40px;
-    top:50%;
 }
 
-.word3{
-    bottom:-10px;
+.p3{
+    top:180px;
+    right:-120px;
+}
+
+.p4{
+    top:50%;
+    right:-140px;
+    transform:translateY(-50%);
+}
+
+.p5{
+    bottom:180px;
+    right:-120px;
+}
+
+.p6{
+    bottom:40px;
+    right:-40px;
+}
+
+.p7{
+    bottom:-50px;
     left:50%;
+    transform:translateX(-50%);
 }
 
-.word4{
-    left:-50px;
+.p8{
+    bottom:40px;
+    left:-40px;
+}
+
+.p9{
+    bottom:180px;
+    left:-120px;
+}
+
+.p10{
     top:50%;
+    left:-170px;
+    transform:translateY(-50%);
+}
+
+.p11{
+    top:180px;
+    left:-120px;
+}
+
+.p12{
+    top:40px;
+    left:-40px;
+}
+
+.p13{
+    top:110px;
+    left:100px;
+}
+
+.p14{
+    top:110px;
+    right:100px;
+}
+
+.p15{
+    bottom:110px;
+    left:100px;
+}
+
+.p16{
+    bottom:110px;
+    right:100px;
 }
 
 /* 📸 FOTOS */
@@ -306,6 +500,56 @@ nav li:hover{
         transform:
         translateY(-100px)
         scale(1.5);
+    }
+
+}
+
+/* ANIMACIONES GALAXIA */
+
+@keyframes spin1{
+
+    from{
+        transform:rotate(65deg) rotate(0deg);
+    }
+
+    to{
+        transform:rotate(65deg) rotate(360deg);
+    }
+
+}
+
+@keyframes spin2{
+
+    from{
+        transform:rotate(-65deg) rotate(0deg);
+    }
+
+    to{
+        transform:rotate(-65deg) rotate(-360deg);
+    }
+
+}
+
+@keyframes spin3{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.1);
     }
 
 }
