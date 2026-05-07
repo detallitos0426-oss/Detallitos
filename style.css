@@ -1,329 +1,311 @@
-/* ========================= */
-/* 🌎 RESET */
-/* ========================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+    overflow:hidden;
+    background:black;
+    color:white;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
+/* 🌌 ESTRELLAS */
 
-/* ========================= */
-/* 💖 NAVBAR */
-/* ========================= */
-
-nav {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 90%;
-  padding: 20px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(255,255,255,0.2);
-
-  border-radius: 20px;
-
-  z-index: 1000;
-}
-
-.logo {
-  color: pink;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: hotpink;
-}
-
-/* ========================= */
-/* 💖 AMOR */
-/* ========================= */
-
-.amor-section {
-  min-height: 100vh;
-
-  background:
-    radial-gradient(circle, #ff1493 0%, #4b0030 100%);
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  padding: 120px 10%;
-  position: relative;
-  overflow: hidden;
-}
-
-.amor-text {
-  width: 50%;
-  z-index: 2;
-}
-
-.amor-text h1 {
-  font-size: 7rem;
-  color: pink;
-  margin-bottom: 20px;
-
-  text-shadow: 0 0 30px pink;
-}
-
-.amor-text h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-.amor-text p {
-  font-size: 1.2rem;
-  line-height: 2;
-  margin-bottom: 20px;
-}
-
-.amor-text h3 {
-  font-size: 3rem;
-  color: pink;
-}
-
-.amor-images {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.amor-images img {
-  width: 250px;
-  border-radius: 20px;
-  border: 4px solid pink;
-
-  box-shadow: 0 0 30px pink;
-
-  transition: 0.4s;
-}
-
-.amor-images img:hover {
-  transform: scale(1.05);
-}
-
-/* CORAZONES */
-
-.hearts::before,
-.hearts::after {
-  content: "💖";
-  position: absolute;
-  font-size: 3rem;
-  animation: float 6s infinite linear;
-}
-
-.hearts::after {
-  left: 80%;
-  animation-delay: 3s;
-}
-
-@keyframes float {
-
-  0% {
-    transform: translateY(100vh);
-  }
-
-  100% {
-    transform: translateY(-100vh);
-  }
-
-}
-
-/* ========================= */
-/* 🎆 FELICES */
-/* ========================= */
-
-.felices-section {
-  position: relative;
-  min-height: 100vh;
-
-  background:
-    linear-gradient(to bottom, #090979, #000);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
-}
-
-#fireworks {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.felices-content {
-  text-align: center;
-  z-index: 2;
-}
-
-.felices-content h1 {
-  font-size: 5rem;
-}
-
-.felices-content h2 {
-  font-size: 4rem;
-  color: gold;
-}
-
-.felices-content p {
-  margin-top: 20px;
-  font-size: 1.3rem;
-}
-
-/* ========================= */
-/* 🌌 GALAXIA */
-/* ========================= */
-
-.galaxia-section {
-  min-height: 100vh;
-
-  background:
-    radial-gradient(circle, #1b2735 0%, #090a0f 60%, #000 100%);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-  overflow: hidden;
-}
-
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  background-image:
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
     radial-gradient(white 1px, transparent 1px);
 
-  background-size: 50px 50px;
+    background-size:40px 40px;
 
-  animation: starsMove 100s linear infinite;
+    animation:moveStars 60s linear infinite;
+
+    z-index:-2;
 }
 
-.galaxy-center {
-  text-align: center;
-  z-index: 2;
-}
+@keyframes moveStars{
 
-.galaxy-center h1 {
-  font-size: 6rem;
-  margin-bottom: 40px;
+    from{
+        transform:translateY(0);
+    }
 
-  text-shadow: 0 0 20px #fff;
-}
-
-.orbit {
-  position: relative;
-
-  width: 500px;
-  height: 500px;
-
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-
-  animation: rotate 20s linear infinite;
-}
-
-.orbit span {
-  position: absolute;
-  color: white;
-}
-
-.orbit span:nth-child(1) {
-  top: -20px;
-  left: 40%;
-}
-
-.orbit span:nth-child(2) {
-  top: 20%;
-  right: -80px;
-}
-
-.orbit span:nth-child(3) {
-  bottom: 20%;
-  right: -80px;
-}
-
-.orbit span:nth-child(4) {
-  bottom: -20px;
-  left: 40%;
-}
-
-.orbit span:nth-child(5) {
-  top: 20%;
-  left: -80px;
-}
-
-.orbit span:nth-child(6) {
-  bottom: 20%;
-  left: -100px;
-}
-
-.galaxy-center h2 {
-  margin-top: 40px;
-  color: hotpink;
-  font-size: 3rem;
-}
-
-/* ANIMACIONES */
-
-@keyframes rotate {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+    to{
+        transform:translateY(-200px);
+    }
 
 }
 
-@keyframes starsMove {
+/* ✨ GLOW */
 
-  from {
-    transform: translateY(0);
-  }
+.glow{
+    position:fixed;
 
-  to {
-    transform: translateY(-1000px);
-  }
+    width:700px;
+    height:700px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,0,150,.2),
+    transparent 70%);
+
+    filter:blur(80px);
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:-1;
+}
+
+/* ❤️ NAVBAR */
+
+nav{
+    position:fixed;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    padding:18px 30px;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#ff9ecb;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav li{
+    cursor:pointer;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav li:hover{
+    color:#ff9ecb;
+    transform:scale(1.1);
+}
+
+/* 📄 PAGINAS */
+
+.page{
+    position:absolute;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    padding:40px;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:1s;
+}
+
+.page.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* ❤️ HOME */
+
+.home h1{
+    font-size:6rem;
+    font-weight:800;
+
+    text-shadow:
+    0 0 20px white,
+    0 0 40px white,
+    0 0 80px #ff4da6;
+}
+
+.home p{
+    margin-top:20px;
+    font-size:1.3rem;
+    opacity:.8;
+}
+
+/* 💌 CARTA */
+
+.carta-box{
+
+    max-width:800px;
+
+    background:rgba(255,255,255,.07);
+
+    padding:50px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    line-height:2;
+
+    font-size:1.1rem;
+
+    box-shadow:
+    0 0 30px rgba(255,0,120,.3);
+}
+
+/* 🌌 GALAXIA */
+
+.galaxia h1{
+    font-size:5rem;
+
+    text-shadow:
+    0 0 20px white,
+    0 0 50px white;
+}
+
+.orbit{
+
+    position:relative;
+
+    width:450px;
+    height:450px;
+
+    border:2px solid rgba(255,255,255,.2);
+
+    border-radius:50%;
+
+    margin-top:40px;
+
+    animation:spin 20s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.word{
+    position:absolute;
+    color:white;
+    font-weight:600;
+}
+
+.word1{
+    top:-10px;
+    left:50%;
+}
+
+.word2{
+    right:-40px;
+    top:50%;
+}
+
+.word3{
+    bottom:-10px;
+    left:50%;
+}
+
+.word4{
+    left:-50px;
+    top:50%;
+}
+
+/* 📸 FOTOS */
+
+.gallery{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.photo{
+    width:250px;
+    height:350px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:.5s;
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.photo:hover{
+    transform:
+    translateY(-10px)
+    scale(1.03);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ❤️ CORAZONES */
+
+.heart{
+    position:fixed;
+
+    color:#ff4da6;
+
+    animation:float 6s linear infinite;
+
+    opacity:.7;
+}
+
+@keyframes float{
+
+    from{
+        transform:
+        translateY(100vh)
+        scale(0);
+    }
+
+    to{
+        transform:
+        translateY(-100px)
+        scale(1.5);
+    }
 
 }
