@@ -1,160 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Para Mi Amor 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Para Mi Amor ❤️</title>
 
-  <!-- ICONOS -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-  <!-- ========================= -->
-  <!-- 💖 NAVBAR -->
-  <!-- ========================= -->
-  <nav>
+<div class="stars"></div>
+<div class="glow"></div>
 
-    <div class="logo">
-      💖 Para Mi Princesa
-    </div>
+<!-- ❤️ NAVBAR -->
 
-    <ul>
+<nav>
 
-      <li>
-        <a href="#amor">
-          <i class="fa-solid fa-heart"></i>
-          Amor
-        </a>
-      </li>
+<div class="logo">❤️ Para Mi Amor</div>
 
-      <li>
-        <a href="#felices">
-          <i class="fa-solid fa-gift"></i>
-          Felices 1 Año y 1 Mes
-        </a>
-      </li>
+<ul>
+<li onclick="showPage('home')">❤️ Amor</li>
+<li onclick="showPage('carta')">💌 Carta</li>
+<li onclick="showPage('galaxia')">🌌 Galaxia</li>
+<li onclick="showPage('fotos')">📸 Fotos</li>
+</ul>
 
-      <li>
-        <a href="#galaxia">
-          <i class="fa-solid fa-star"></i>
-          Galaxia
-        </a>
-      </li>
+</nav>
 
-    </ul>
+<!-- ❤️ HOME -->
 
-  </nav>
+<section id="home" class="page home active">
 
-  <!-- ========================= -->
-  <!-- 💖 AMOR -->
-  <!-- ========================= -->
-  <section id="amor" class="amor-section">
+<h1>TE AMO ❤️</h1>
 
-    <div class="hearts"></div>
+<p>
+Eres la persona más hermosa de mi universo ✨
+</p>
 
-    <div class="amor-text">
+</section>
 
-      <h1>Amor 💖</h1>
+<!-- 💌 CARTA -->
 
-      <h2>
-        Te Amo Más que a Nada en este Mundo
-      </h2>
+<section id="carta" class="page">
 
-      <p>
-        No existen palabras suficientes para explicar lo mucho que te amo.
-        Desde que llegaste a mi vida todo cambió para mejor.
-        Eres mi felicidad, mi paz, mi alegría y la razón por la que sonrío todos los días.
-      </p>
+<div class="carta-box">
 
-      <p>
-        Gracias por existir, por acompañarme y por hacerme sentir amado.
-        Quiero seguir contigo por muchísimo tiempo más,
-        creando recuerdos hermosos juntos.
-      </p>
+<h2>💌 Carta Para Ti</h2>
 
-      <h3>💖 Te Amo Muchísimo 💖</h3>
+<p>
+Desde que llegaste a mi vida todo se volvió más bonito.
+Cada momento contigo se siente especial,
+como si el universo entero brillara diferente ✨
+</p>
 
-    </div>
+<br>
 
-    <div class="amor-images">
+<p>
+Gracias por existir,
+por hacerme feliz,
+por regalarme tu amor,
+tu sonrisa y tus abrazos ❤️
+</p>
 
-      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200"
-        alt="amor">
+<br>
 
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200"
-        alt="amor">
+<p>
+Quiero seguir creando recuerdos contigo,
+viajar por galaxias,
+ver estrellas,
+reír juntos
+y amarte cada día más 🌌
+</p>
 
-      <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200"
-        alt="amor">
+</div>
 
-    </div>
+</section>
 
-  </section>
+<!-- 🌌 GALAXIA -->
 
-  <!-- ========================= -->
-  <!-- 🎆 FELICES -->
-  <!-- ========================= -->
-  <section id="felices" class="felices-section">
+<section id="galaxia" class="page galaxia">
 
-    <canvas id="fireworks"></canvas>
+<h1>GALAXIA</h1>
 
-    <div class="felices-content">
+<div class="orbit">
 
-      <h1>Felices</h1>
+<div class="word word1">🇨🇷 Te Amo</div>
+<div class="word word2">🇺🇸 I Love You</div>
+<div class="word word3">🇫🇷 Je T’aime</div>
+<div class="word word4">🇯🇵 愛してる</div>
 
-      <h2>1 Año y 1 Mes Juntos ✨</h2>
+</div>
 
-      <p>
-        Gracias por cada momento,
-        cada sonrisa y cada recuerdo.
-      </p>
+</section>
 
-      <p>
-        Este es solo el comienzo
-        de algo hermoso.
-      </p>
+<!-- 📸 FOTOS -->
 
-    </div>
+<section id="fotos" class="page">
 
-  </section>
+<div class="gallery">
 
-  <!-- ========================= -->
-  <!-- 🌌 GALAXIA -->
-  <!-- ========================= -->
-  <section id="galaxia" class="galaxia-section">
+<div class="photo">
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-    <div class="stars"></div>
+<div class="photo">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-    <div class="galaxy-center">
+<div class="photo">
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
+</div>
 
-      <h1>GALAXIA</h1>
+</div>
 
-      <div class="orbit">
+</section>
 
-        <span>🇨🇷 Te Amo</span>
-        <span>🇺🇸 I Love You</span>
-        <span>🇫🇷 Je t'aime</span>
-        <span>🇮🇹 Ti Amo</span>
-        <span>🇯🇵 愛してる</span>
-        <span>🇩🇪 Ich liebe dich</span>
-
-      </div>
-
-      <h2>Costa Rica 💖</h2>
-
-    </div>
-
-  </section>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
-
 </html>
