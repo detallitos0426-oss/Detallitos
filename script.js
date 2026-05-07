@@ -1,43 +1,46 @@
-/* ========================= */
-/* 🎆 FUEGOS ARTIFICIALES */
-/* ========================= */
+/* 📄 CAMBIAR PAGINA */
 
-const canvas = document.getElementById("fireworks");
+function showPage(id){
 
-const ctx = canvas.getContext("2d");
+    document.querySelectorAll('.page')
+    .forEach(page => {
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+        page.classList.remove('active');
 
-function firework() {
+    });
 
-  const x = Math.random() * canvas.width;
-  const y = Math.random() * canvas.height / 2;
-
-  for (let i = 0; i < 100; i++) {
-
-    ctx.beginPath();
-
-    ctx.arc(
-      x + Math.random() * 100 - 50,
-      y + Math.random() * 100 - 50,
-      2,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fillStyle =
-      `hsl(${Math.random() * 360},100%,50%)`;
-
-    ctx.fill();
-  }
-
+    document
+    .getElementById(id)
+    .classList.add('active');
 }
 
-setInterval(() => {
+/* ❤️ CORAZONES */
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function createHeart(){
 
-  firework();
+    const heart =
+    document.createElement('div');
 
-}, 1000);
+    heart.classList.add('heart');
+
+    heart.innerHTML='❤️';
+
+    heart.style.left =
+    Math.random()*100+'vw';
+
+    heart.style.fontSize =
+    Math.random()*25+15+'px';
+
+    heart.style.animationDuration =
+    Math.random()*3+3+'s';
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },6000);
+}
+
+setInterval(createHeart,300);
