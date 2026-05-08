@@ -5,13 +5,31 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* 🌌 FONDO ESPACIAL REALISTA */
+
 body{
     overflow:hidden;
-    background:black;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(120,0,255,.18) 0%,
+    rgba(40,0,70,.35) 20%,
+    rgba(0,0,0,1) 70%),
+
+    radial-gradient(circle at top left,
+    rgba(255,0,150,.12),
+    transparent 30%),
+
+    radial-gradient(circle at bottom right,
+    rgba(120,0,255,.12),
+    transparent 30%),
+
+    black;
+
     color:white;
 }
 
-/* 🌌 FONDO ESPACIAL */
+/* 🌌 ESTRELLAS */
 
 .stars{
     position:fixed;
@@ -19,129 +37,138 @@ body{
     width:100%;
     height:100%;
 
-    background:
-    radial-gradient(circle at top, rgba(120,0,255,.35), transparent 40%),
-    radial-gradient(circle at bottom, rgba(255,0,180,.25), transparent 40%),
-    radial-gradient(white 1px, transparent 1px);
+    overflow:hidden;
 
-    background-size:
-    100% 100%,
-    100% 100%,
-    40px 40px;
-
-    animation:
-    moveStars 60s linear infinite;
-
-    z-index:-3;
+    z-index:-5;
 }
 
-/* ✨ CAPA GALAXIA */
+/* ⭐ CAPA 1 */
 
 .stars::before{
     content:"";
 
     position:absolute;
 
-    width:100%;
-    height:100%;
+    width:200%;
+    height:200%;
 
-    background:
-    radial-gradient(circle at 30% 50%,
-    rgba(255,0,200,.18),
-    transparent 25%),
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
 
-    radial-gradient(circle at 70% 40%,
-    rgba(0,140,255,.18),
-    transparent 25%),
+    background-size:50px 50px;
 
-    radial-gradient(circle at center,
-    rgba(140,0,255,.15),
-    transparent 35%);
-
-    filter:blur(80px);
+    opacity:.7;
 
     animation:
-    galaxyMove 20s ease-in-out infinite alternate;
+    starsMove 120s linear infinite;
 }
 
-/* ✨ ESTRELLAS BRILLANTES */
+/* ⭐ CAPA 2 */
 
 .stars::after{
     content:"";
 
     position:absolute;
 
-    width:100%;
-    height:100%;
+    width:200%;
+    height:200%;
 
     background-image:
     radial-gradient(white 2px, transparent 2px);
 
-    background-size:120px 120px;
+    background-size:140px 140px;
 
-    opacity:.8;
+    opacity:1;
 
     animation:
-    twinkle 4s infinite alternate;
+    starsMove2 180s linear infinite;
 }
 
-@keyframes moveStars{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-200px);
-    }
-
-}
-
-@keyframes galaxyMove{
-
-    from{
-        transform:scale(1) rotate(0deg);
-    }
-
-    to{
-        transform:scale(1.1) rotate(5deg);
-    }
-
-}
-
-@keyframes twinkle{
-
-    from{
-        opacity:.3;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-/* ✨ GLOW */
+/* 🌌 NEBULOSA */
 
 .glow{
     position:fixed;
 
-    width:700px;
-    height:700px;
+    width:1200px;
+    height:1200px;
 
     background:
     radial-gradient(circle,
-    rgba(255,0,150,.2),
+    rgba(255,0,200,.15),
+    rgba(111,0,255,.08),
     transparent 70%);
 
-    filter:blur(80px);
+    filter:blur(120px);
 
     top:50%;
     left:50%;
 
     transform:translate(-50%,-50%);
 
-    z-index:-1;
+    z-index:-4;
+
+    animation:
+    nebula 20s ease-in-out infinite alternate;
+}
+
+/* ✨ BRILLO EXTRA */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(circle at 50% 50%,
+    rgba(255,0,255,.06),
+    transparent 40%);
+
+    z-index:-3;
+}
+
+/* 🌌 ANIMACIONES FONDO */
+
+@keyframes starsMove{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(-300px,-300px);
+    }
+
+}
+
+@keyframes starsMove2{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(-500px,-200px);
+    }
+
+}
+
+@keyframes nebula{
+
+    from{
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+    }
+
+    to{
+        transform:
+        translate(-50%,-50%)
+        scale(1.1);
+    }
+
 }
 
 /* ❤️ NAVBAR */
