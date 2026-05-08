@@ -267,28 +267,160 @@ nav li:hover{
     opacity:.8;
 }
 
-/* 💌 CARTA */
+/* ========================= */
+/* 💌 CARTAS ANIMADAS */
+/* ========================= */
 
-.carta-box{
+.letters-container{
 
-    max-width:800px;
+    display:flex;
+    gap:50px;
 
-    background:rgba(255,255,255,.07);
+    flex-wrap:wrap;
 
-    padding:50px;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARTA */
+
+.letter-card{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:25px;
+}
+
+/* SOBRE */
+
+.envelope{
+
+    position:relative;
+
+    width:260px;
+    height:180px;
+
+    background:#ff4da6;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 30px rgba(255,0,150,.4);
+
+    transition:1s;
+}
+
+/* FRENTE SOBRE */
+
+.front{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(135deg,
+    #ff70b8,
+    #ff2d95);
+
+    clip-path:
+    polygon(0 0,100% 0,50% 55%);
+
+    z-index:5;
+}
+
+/* HOJA */
+
+.paper{
+
+    position:absolute;
+
+    width:90%;
+    height:160px;
+
+    background:white;
+
+    color:black;
+
+    left:50%;
+    top:100%;
+
+    transform:
+    translateX(-50%);
+
+    border-radius:10px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:1s;
+
+    z-index:1;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.4);
+}
+
+.paper h2{
+
+    margin-bottom:15px;
+
+    color:#ff2d95;
+}
+
+.paper p{
+
+    font-size:.95rem;
+
+    line-height:1.6;
+}
+
+/* ABRIR */
+
+.envelope.open .paper{
+
+    top:10px;
+}
+
+/* BOTON */
+
+.letter-card button{
+
+    padding:14px 28px;
+
+    border:none;
 
     border-radius:30px;
 
-    backdrop-filter:blur(20px);
+    background:
+    linear-gradient(45deg,
+    #ff2d95,
+    #ff70b8);
 
-    border:1px solid rgba(255,255,255,.1);
+    color:white;
 
-    line-height:2;
+    font-weight:700;
 
-    font-size:1.1rem;
+    cursor:pointer;
+
+    transition:.4s;
 
     box-shadow:
-    0 0 30px rgba(255,0,120,.3);
+    0 0 20px rgba(255,0,150,.4);
+}
+
+.letter-card button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 35px rgba(255,0,180,.7);
 }
 
 /* ========================= */
