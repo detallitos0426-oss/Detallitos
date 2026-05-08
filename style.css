@@ -995,22 +995,42 @@ nav li:hover{
 
     /* HOME */
 
+    .home{
+
+        padding-top:160px;
+        padding-bottom:60px;
+    }
+
     .home h1{
 
         font-size:2.8rem;
 
         text-align:center;
+
+        line-height:1.3;
     }
 
     .home p{
 
         font-size:1rem;
 
-        line-height:1.8;
+        line-height:1.9;
 
         padding:0 10px;
 
         text-align:center;
+
+        max-width:95%;
+    }
+
+    /* PAGINAS */
+
+    .page{
+
+        padding:
+        150px 20px 60px 20px;
+
+        overflow-y:auto;
     }
 
     /* CARTAS */
@@ -1032,7 +1052,7 @@ nav li:hover{
 
         width:95%;
 
-        min-height:75vh;
+        min-height:80vh;
 
         padding:
         35px 25px 120px 25px;
@@ -1043,6 +1063,8 @@ nav li:hover{
     .paper h2{
 
         font-size:2rem;
+
+        line-height:1.3;
     }
 
     .paper p{
@@ -1067,6 +1089,8 @@ nav li:hover{
     .love-title{
 
         font-size:2.2rem;
+
+        text-align:center;
     }
 
     /* FOTOS */
@@ -1076,6 +1100,8 @@ nav li:hover{
         flex-direction:column;
 
         align-items:center;
+
+        padding-bottom:50px;
     }
 
     .photo{
@@ -1090,12 +1116,36 @@ nav li:hover{
 
 @media(max-width:500px){
 
+    nav{
+
+        top:10px;
+    }
+
+    nav ul{
+
+        gap:12px;
+    }
+
+    nav li{
+
+        font-size:.85rem;
+    }
+
     .home h1{
 
         font-size:2.2rem;
     }
 
+    .home p{
+
+        font-size:.95rem;
+    }
+
     .paper{
+
+        width:96%;
+
+        min-height:85vh;
 
         padding:
         30px 20px 110px 20px;
@@ -1116,5 +1166,18 @@ nav li:hover{
         transform:scale(.42);
     }
 
+    .close-letter{
+
+        width:90%;
+    }
+
+}
+
+/* 📱 IPHONE SAFE AREA */
+
+body{
+
+    padding-bottom:
+    env(safe-area-inset-bottom);
 
 }
