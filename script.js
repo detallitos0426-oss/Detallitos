@@ -73,6 +73,16 @@ function openLetter(button){
     envelope.classList.toggle('open');
 }
 
+/* ❌ BOTON CERRAR CARTA */
+
+function closeLetter(button){
+
+    const envelope =
+    button.closest('.envelope');
+
+    envelope.classList.remove('open');
+}
+
 /* ❌ CERRAR AL TOCAR FUERA */
 
 document.addEventListener('click',e=>{
@@ -119,3 +129,32 @@ function createShootingStar(){
 }
 
 setInterval(createShootingStar,4000);
+
+/* 🌠 EFECTO EXTRA ESTRELLAS */
+
+function createMiniStar(){
+
+    const star =
+    document.createElement('div');
+
+    star.classList.add('mini-star');
+
+    star.style.left =
+    Math.random()*100+'vw';
+
+    star.style.top =
+    Math.random()*100+'vh';
+
+    star.style.animationDuration =
+    Math.random()*3+2+'s';
+
+    document.body.appendChild(star);
+
+    setTimeout(()=>{
+
+        star.remove();
+
+    },5000);
+}
+
+setInterval(createMiniStar,500);
