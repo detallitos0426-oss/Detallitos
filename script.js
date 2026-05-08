@@ -48,7 +48,7 @@ function createHeart(){
 
 setInterval(createHeart,300);
 
-/* 💌 ABRIR CARTAS */
+/* 💌 ABRIR CARTAS GRANDES */
 
 function openLetter(button){
 
@@ -56,9 +56,43 @@ function openLetter(button){
     button.parentElement
     .querySelector('.envelope');
 
-    envelope.classList.toggle('open');
+    /* CERRAR OTRAS */
 
+    document
+    .querySelectorAll('.envelope')
+    .forEach(e => {
+
+        if(e !== envelope){
+
+            e.classList.remove('open');
+
+        }
+
+    });
+
+    envelope.classList.toggle('open');
 }
+
+/* ❌ CERRAR AL TOCAR FUERA */
+
+document.addEventListener('click',e=>{
+
+    if(
+        !e.target.closest('.paper') &&
+        !e.target.closest('button')
+    ){
+
+        document
+        .querySelectorAll('.envelope')
+        .forEach(e=>{
+
+            e.classList.remove('open');
+
+        });
+
+    }
+
+});
 
 /* ✨ ESTRELLAS FUGACES */
 
