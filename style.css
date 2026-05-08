@@ -954,5 +954,166 @@ nav li:hover{
     to{
         transform:scale(1.1);
     }
+/* ========================= */
+/* 📱 VERSION MOVIL */
+/* ========================= */
+
+@media(max-width:900px){
+
+    /* NAVBAR */
+
+    nav{
+
+        width:95%;
+
+        padding:15px 20px;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    nav ul{
+
+        gap:18px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    nav li{
+
+        font-size:.95rem;
+    }
+
+    .logo{
+
+        font-size:1.2rem;
+    }
+
+    /* HOME */
+
+    .home h1{
+
+        font-size:2.8rem;
+
+        text-align:center;
+    }
+
+    .home p{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+        padding:0 10px;
+
+        text-align:center;
+    }
+
+    /* CARTAS */
+
+    .letters-container{
+
+        flex-direction:column;
+
+        gap:35px;
+    }
+
+    .envelope{
+
+        width:220px;
+        height:150px;
+    }
+
+    .paper{
+
+        width:95%;
+
+        min-height:75vh;
+
+        padding:
+        35px 25px 120px 25px;
+
+        border-radius:25px;
+    }
+
+    .paper h2{
+
+        font-size:2rem;
+    }
+
+    .paper p{
+
+        font-size:1rem;
+
+        line-height:2;
+    }
+
+    .close-letter{
+
+        width:80%;
+    }
+
+    /* GALAXIA */
+
+    .galaxy-wrapper{
+
+        transform:scale(.55);
+    }
+
+    .love-title{
+
+        font-size:2.2rem;
+    }
+
+    /* FOTOS */
+
+    .gallery{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .photo{
+
+        width:220px;
+        height:300px;
+    }
+
+}
+
+/* 📱 TELEFONOS PEQUEÑOS */
+
+@media(max-width:500px){
+
+    .home h1{
+
+        font-size:2.2rem;
+    }
+
+    .paper{
+
+        padding:
+        30px 20px 110px 20px;
+    }
+
+    .paper h2{
+
+        font-size:1.7rem;
+    }
+
+    .paper p{
+
+        font-size:.95rem;
+    }
+
+    .galaxy-wrapper{
+
+        transform:scale(.42);
+    }
+
 
 }
