@@ -265,10 +265,14 @@ nav li:hover{
     margin-top:20px;
     font-size:1.3rem;
     opacity:.8;
+
+    max-width:1000px;
+
+    line-height:2;
 }
 
 /* ========================= */
-/* 💌 CARTAS ANIMADAS */
+/* 💌 CARTAS */
 /* ========================= */
 
 .letters-container{
@@ -334,7 +338,7 @@ nav li:hover{
     z-index:5;
 }
 
-/* HOJA */
+/* HOJA GRANDE */
 
 .paper{
 
@@ -403,7 +407,7 @@ nav li:hover{
     scale(1);
 }
 
-/* BOTON */
+/* BOTON ABRIR */
 
 .letter-card button{
 
@@ -438,6 +442,43 @@ nav li:hover{
     0 0 35px rgba(255,0,180,.7);
 }
 
+/* ❌ BOTON CERRAR */
+
+.close-letter{
+
+    margin-top:35px;
+
+    padding:14px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(45deg,
+    #ff2d95,
+    #ff70b8);
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 0 20px rgba(255,0,150,.4);
+}
+
+.close-letter:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 35px rgba(255,0,180,.7);
+}
+
 /* FONDO OSCURO */
 
 .paper::before{
@@ -449,20 +490,19 @@ nav li:hover{
     inset:0;
 
     background:
-    rgba(0,0,0,.7);
+    rgba(0,0,0,.75);
 
     z-index:-1;
 }
+
 /* ========================= */
-/* 🌌 GALAXIA ULTRA */
+/* 🌌 GALAXIA */
 /* ========================= */
 
 .galaxia{
     overflow:hidden;
     position:relative;
 }
-
-/* FONDO GLOW */
 
 .space-bg{
     position:absolute;
@@ -486,8 +526,6 @@ nav li:hover{
     transform:translate(-50%,-50%);
 }
 
-/* CONTENEDOR */
-
 .galaxy-wrapper{
     position:relative;
 
@@ -498,8 +536,6 @@ nav li:hover{
     justify-content:center;
     align-items:center;
 }
-
-/* NÚCLEO */
 
 .galaxy-core{
     position:absolute;
@@ -523,8 +559,6 @@ nav li:hover{
 
     animation:pulse 4s infinite alternate;
 }
-
-/* TEXTO CENTRAL */
 
 .love-title{
     position:absolute;
@@ -573,7 +607,7 @@ nav li:hover{
     animation:spin2 10s linear infinite;
 }
 
-/* ÓRBITA GRANDE */
+/* ORBITA */
 
 .outer-ring{
     position:absolute;
@@ -759,6 +793,49 @@ nav li:hover{
     opacity:.7;
 }
 
+/* ✨ ESTRELLAS FUGACES */
+
+.shooting-star{
+
+    position:fixed;
+
+    width:3px;
+    height:120px;
+
+    background:
+    linear-gradient(white,transparent);
+
+    transform:
+    rotate(45deg);
+
+    animation:
+    shooting 2s linear forwards;
+
+    z-index:999;
+}
+
+@keyframes shooting{
+
+    from{
+        transform:
+        translate(0,0)
+        rotate(45deg);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translate(-600px,600px)
+        rotate(45deg);
+
+        opacity:0;
+    }
+
+}
+
+/* ANIMACIONES */
+
 @keyframes float{
 
     from{
@@ -774,8 +851,6 @@ nav li:hover{
     }
 
 }
-
-/* ANIMACIONES GALAXIA */
 
 @keyframes spin1{
 
