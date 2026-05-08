@@ -338,54 +338,69 @@ nav li:hover{
 
 .paper{
 
-    position:absolute;
+    position:fixed;
 
-    width:90%;
-    height:160px;
+    width:700px;
+    max-width:90%;
+
+    min-height:450px;
 
     background:white;
 
     color:black;
 
     left:50%;
-    top:100%;
+    top:50%;
 
     transform:
-    translateX(-50%);
+    translate(-50%,-50%)
+    scale(0);
 
-    border-radius:10px;
+    border-radius:25px;
 
-    padding:20px;
+    padding:50px;
 
     text-align:center;
 
-    transition:1s;
+    transition:.6s;
 
-    z-index:1;
+    z-index:5000;
+
+    opacity:0;
+
+    overflow:auto;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,.4);
+    0 0 60px rgba(255,0,150,.5);
 }
+
+/* TEXTO */
 
 .paper h2{
 
-    margin-bottom:15px;
+    margin-bottom:25px;
 
     color:#ff2d95;
+
+    font-size:2.2rem;
 }
 
 .paper p{
 
-    font-size:.95rem;
+    font-size:1.2rem;
 
-    line-height:1.6;
+    line-height:2;
 }
 
-/* ABRIR */
+/* ABRIR CARTA */
 
 .envelope.open .paper{
 
-    top:10px;
+    opacity:1;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
 }
 
 /* BOTON */
@@ -423,6 +438,21 @@ nav li:hover{
     0 0 35px rgba(255,0,180,.7);
 }
 
+/* FONDO OSCURO */
+
+.paper::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.7);
+
+    z-index:-1;
+}
 /* ========================= */
 /* 🌌 GALAXIA ULTRA */
 /* ========================= */
