@@ -14,7 +14,7 @@ function showPage(id){
     .classList.add('active');
 }
 
-/* ❤️ CORAZONES */
+/* ❤️ CORAZONES FLOTANDO */
 
 function createHeart(){
 
@@ -34,6 +34,9 @@ function createHeart(){
     heart.style.animationDuration =
     Math.random()*3+3+'s';
 
+    heart.style.opacity =
+    Math.random();
+
     document.body.appendChild(heart);
 
     setTimeout(()=>{
@@ -44,3 +47,41 @@ function createHeart(){
 }
 
 setInterval(createHeart,300);
+
+/* 💌 ABRIR CARTAS */
+
+function openLetter(button){
+
+    const envelope =
+    button.parentElement
+    .querySelector('.envelope');
+
+    envelope.classList.toggle('open');
+
+}
+
+/* ✨ ESTRELLAS FUGACES */
+
+function createShootingStar(){
+
+    const star =
+    document.createElement('div');
+
+    star.classList.add('shooting-star');
+
+    star.style.top =
+    Math.random()*50+'vh';
+
+    star.style.left =
+    Math.random()*100+'vw';
+
+    document.body.appendChild(star);
+
+    setTimeout(()=>{
+
+        star.remove();
+
+    },2000);
+}
+
+setInterval(createShootingStar,4000);
