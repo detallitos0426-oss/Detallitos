@@ -158,3 +158,281 @@ function createMiniStar(){
 }
 
 setInterval(createMiniStar,500);
+
+/* ========================= */
+/* 🎮 VIAJE POR LA GALAXIA */
+/* ========================= */
+
+let player =
+document.getElementById('player');
+
+let gameArea =
+document.getElementById('gameArea');
+
+let score = 0;
+let lives = 3;
+
+let gameRunning = false;
+
+/* 🚀 MOVIMIENTO */
+
+document.addEventListener('mousemove',e=>{
+
+    if(!gameRunning) return;
+
+    const rect =
+    gameArea.getBoundingClientRect();
+
+    let x =
+    e.clientX - rect.left;
+
+    x =
+    Math.max(40,
+    Math.min(rect.width-40,x));
+
+    player.style.left =
+    x+'px';
+
+});
+
+/* 📱 TOUCH */
+
+document.addEventListener('touchmove',e=>{
+
+    if(!gameRunning) return;
+
+    const rect =
+    gameArea.getBoundingClientRect();
+
+    let x =
+    e.touches[0].clientX - rect.left;
+
+    x =
+    Math.max(40,
+    Math.min(rect.width-40,x));
+
+    player.style.left =
+    x+'px';
+
+});
+
+/* ✨ INICIAR */
+
+function startGalaxyGame(){
+
+    score = 0;
+    lives = 3;
+
+    gameRunning = true;
+
+    document
+    .getElementById('score')
+    .innerText = score;
+
+    document
+    .getElementById('lives')
+    .innerText = lives;
+
+    spawnItems();
+
+    randomMessages();
+}
+
+/* 💖 OBJETOS */
+
+function spawnItems(){
+
+    if(!gameRunning) return;
+
+    createGameHeart();
+
+    if(Math.random()>.6){
+
+        createMeteor();
+    }
+
+    setTimeout(spawnItems,900);
+}
+
+/* ❤️ CORAZONES */
+
+function createGameHeart(){
+
+    const heart =
+    document.createElement('div');
+
+    heart.classList.add('game-heart');
+
+    heart.innerHTML='💖';
+
+    heart.style.left =
+    Math.random()*90+'%';
+
+    gameArea.appendChild(heart);
+
+    const check =
+    setInterval(()=>{
+
+        if(!heart.parentElement){
+
+            clearInterval(check);
+            return;
+        }
+
+        const heartRect =
+        heart.getBoundingClientRect();
+
+        const playerRect =
+        player.getBoundingClientRect();
+
+        if(
+            heartRect.left <
+            playerRect.right &&
+
+            heartRect.right >
+            playerRect.left &&
+
+            heartRect.top <
+            playerRect.bottom &&
+
+            heartRect.bottom >
+            playerRect.top
+        ){
+
+            score++;
+
+            document
+            .getElementById('score')
+            .innerText = score;
+
+            heart.remove();
+
+            clearInterval(check);
+        }
+
+    },30);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },6000);
+}
+
+/* ☄️ METEORITOS */
+
+function createMeteor(){
+
+    const meteor =
+    document.createElement('div');
+
+    meteor.classList.add('meteor');
+
+    meteor.innerHTML='☄️';
+
+    meteor.style.left =
+    Math.random()*90+'%';
+
+    gameArea.appendChild(meteor);
+
+    const check =
+    setInterval(()=>{
+
+        if(!meteor.parentElement){
+
+            clearInterval(check);
+            return;
+        }
+
+        const meteorRect =
+        meteor.getBoundingClientRect();
+
+        const playerRect =
+        player.getBoundingClientRect();
+
+        if(
+            meteorRect.left <
+            playerRect.right &&
+
+            meteorRect.right >
+            playerRect.left &&
+
+            meteorRect.top <
+            playerRect.bottom &&
+
+            meteorRect.bottom >
+            playerRect.top
+        ){
+
+            lives--;
+
+            document
+            .getElementById('lives')
+            .innerText = lives;
+
+            meteor.remove();
+
+            clearInterval(check);
+
+            if(lives <= 0){
+
+                endGame();
+            }
+
+        }
+
+    },30);
+
+    setTimeout(()=>{
+
+        meteor.remove();
+
+    },5000);
+}
+
+/* 🌌 MENSAJES */
+
+const messages = [
+
+"Eres mi galaxia favorita 🌌",
+"Te amo infinito ♾️",
+"Nuestro amor brilla ✨",
+"Siempre contigo 💖",
+"Eres mi universo ❤️"
+
+];
+
+function randomMessages(){
+
+    if(!gameRunning) return;
+
+    const msg =
+    document.getElementById('floatingMessage');
+
+    msg.innerText =
+    messages[
+        Math.floor(
+        Math.random()*messages.length
+    )];
+
+    msg.classList.add('show');
+
+    setTimeout(()=>{
+
+        msg.classList.remove('show');
+
+    },2500);
+
+    setTimeout(randomMessages,5000);
+}
+
+/* 💥 FINAL */
+
+function endGame(){
+
+    gameRunning = false;
+
+    alert(
+    '💖 Feliz 1 Año y 1 Mes ❤️\n\nGracias por estar conmigo ✨'
+    );
+}
