@@ -338,20 +338,24 @@ nav li:hover{
     z-index:5;
 }
 
-/* HOJA GRANDE */
+/* 🌈 HOJA GRANDE NEON */
 
 .paper{
 
     position:fixed;
 
-    width:700px;
-    max-width:90%;
+    width:900px;
+    max-width:92%;
 
-    min-height:450px;
+    min-height:650px;
 
-    background:white;
+    background:
+    linear-gradient(
+    145deg,
+    rgba(20,20,40,.97),
+    rgba(40,0,70,.97));
 
-    color:black;
+    color:white;
 
     left:50%;
     top:50%;
@@ -360,11 +364,12 @@ nav li:hover{
     translate(-50%,-50%)
     scale(0);
 
-    border-radius:25px;
+    border-radius:35px;
 
-    padding:50px;
+    padding:
+    60px 60px 140px 60px;
 
-    text-align:center;
+    text-align:left;
 
     transition:.6s;
 
@@ -372,28 +377,83 @@ nav li:hover{
 
     opacity:0;
 
-    overflow:auto;
+    overflow-y:auto;
+
+    border:
+    2px solid rgba(255,0,200,.5);
 
     box-shadow:
-    0 0 60px rgba(255,0,150,.5);
+    0 0 20px #ff00ff,
+    0 0 60px rgba(255,0,255,.5),
+    0 0 120px rgba(140,0,255,.4);
+}
+
+/* ✨ GLOW */
+
+.paper::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+    45deg,
+    rgba(255,0,200,.08),
+    rgba(0,150,255,.08));
+
+    pointer-events:none;
+}
+
+/* 🌑 FONDO OSCURO */
+
+.paper::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.78);
+
+    z-index:-1;
+}
+
+/* TITULO */
+
+.paper h2{
+
+    margin-bottom:35px;
+
+    color:#ff7be5;
+
+    font-size:3rem;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 15px #ff00ff,
+    0 0 40px #ff00ff;
 }
 
 /* TEXTO */
 
-.paper h2{
-
-    margin-bottom:25px;
-
-    color:#white;
-
-    font-size:2.2rem;
-}
-
 .paper p{
 
-    font-size:1.2rem;
+    font-size:1.3rem;
 
-    line-height:2;
+    line-height:2.3;
+
+    color:#f3f3f3;
+
+    text-shadow:
+    0 0 8px rgba(255,255,255,.15);
 }
 
 /* ABRIR CARTA */
@@ -446,20 +506,29 @@ nav li:hover{
 
 .close-letter{
 
-    margin-top:35px;
+    position:absolute;
 
-    padding:14px 35px;
+    bottom:35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:
+    16px 45px;
 
     border:none;
 
-    border-radius:30px;
+    border-radius:40px;
 
     background:
-    linear-gradient(45deg,
-    #ff2d95,
-    #ff70b8);
+    linear-gradient(
+    45deg,
+    #ff00aa,
+    #7a00ff);
 
     color:white;
+
+    font-size:1rem;
 
     font-weight:700;
 
@@ -468,31 +537,19 @@ nav li:hover{
     transition:.4s;
 
     box-shadow:
-    0 0 20px rgba(255,0,150,.4);
+    0 0 20px #ff00ff,
+    0 0 50px rgba(255,0,255,.5);
 }
 
 .close-letter:hover{
 
-    transform:scale(1.08);
+    transform:
+    translateX(-50%)
+    scale(1.08);
 
     box-shadow:
-    0 0 35px rgba(255,0,180,.7);
-}
-
-/* FONDO OSCURO */
-
-.paper::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-    rgba(0,0,0,.75);
-
-    z-index:-1;
+    0 0 35px #ff00ff,
+    0 0 80px rgba(255,0,255,.8);
 }
 
 /* ========================= */
