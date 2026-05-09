@@ -8,7 +8,8 @@
 /* 🌌 FONDO ESPACIAL REALISTA */
 
 body{
-    overflow:hidden;
+   overflow-x:hidden;
+overflow-y:auto;
 
     background:
     radial-gradient(circle at center,
