@@ -163,11 +163,8 @@ setInterval(createMiniStar,500);
 /* 🎮 VIAJE POR LA GALAXIA */
 /* ========================= */
 
-let player =
-document.getElementById('player');
-
-let gameArea =
-document.getElementById('gameArea');
+let player;
+let gameArea;
 
 let score = 0;
 let lives = 3;
